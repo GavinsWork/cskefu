@@ -5,7 +5,7 @@ services:
     restart: always
     ports:
       - "${CC_WEB_PORT:-8035}:8035"
-      - "${CC_SOCKET_PORT:-8036}:8036"
+      - "${CC_SOCKET_PORT:- }:8036"
     volumes:
       - ./contact-center/data:/data
       - ./contact-center/logs:/logs
@@ -53,7 +53,8 @@ services:
       - activemq
 
   activemq:
-    image: cskefu/activemq:5.14.3
+#    image: cskefu/activemq:5.14.3
+    image: webcenter/activemq:5.14.3
     restart: always
     environment:
       - ACTIVEMQ_ADMIN_LOGIN=admin
@@ -70,7 +71,8 @@ services:
       - "${ACTIVEMQ_PORT3:-8053}:61613"
 
   mysql:
-    image: cskefu/mysql:5.7
+#    image: cskefu/mysql:5.7
+    image: ibex/debian-mysql-server-5.7
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWD:-123456}
@@ -83,7 +85,8 @@ services:
     command: --max_allowed_packet=32505856
 
   redis:
-    image: cskefu/redis:5.0.5
+#    image: cskefu/redis:5.0.5
+    image: arm64v8/redis:5.0.5
     environment:
       - REDIS_PASSWORD=${DB_PASSWD:-123456}
     restart: always

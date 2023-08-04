@@ -130,6 +130,7 @@ public class WebIMController extends Handler {
         return request(super.createView("redirect:/admin/webim/index.html?snsid=" + inviteData.getSnsaccountid()));
     }
 
+
     @RequestMapping("/profile")
     @Menu(type = "app", subtype = "profile", admin = true)
     public ModelAndView profile(ModelMap map, HttpServletRequest request, @Valid String snsid) {

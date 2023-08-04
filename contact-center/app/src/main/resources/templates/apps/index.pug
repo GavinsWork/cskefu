@@ -189,6 +189,13 @@ html(xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xm
                         li.layui-nav-item
                             a(href="javascript:void(0)")
                                 i.layui-icon(style="position: relative;float:left;") 
+                                span(style="display: inline-block;max-width: 90px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;float: left")= "XSwitch"
+                            dl.layui-nav-child
+                                dd
+                                    a(href="/xswitch/conference/page.html" data-toggle="ajax" data-width="750" data-title="会议状态") 会议状态
+                        li.layui-nav-item
+                            a(href="javascript:void(0)")
+                                i.layui-icon(style="position: relative;float:left;") 
                                 span(style="display: inline-block;max-width: 90px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;float: left")= user.uname
                             dl.layui-nav-child
                                 dd

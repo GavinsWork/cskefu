@@ -1,0 +1,31 @@
+
+block content
+    doctype html
+    html
+        head
+            script(language="javascript").
+                $(document).ready(function () {
+                    $.ajax({
+                        url: '/xswitch/conference/list',
+                        method: 'POST',
+                        success: function (data) {
+                            var table = $('#conferenceTable');
+                            $.each(data, function (i, item) {
+                                var row = $('<tr></tr>');
+                                row.append('<td>' + item.name + '</td>');
+                                row.append('<td>' + item.id + '</td>');
+                                row.append('<td>' + item.number + '</td>');
+                                table.append(row);
+                            });
+                        }
+                    });
+                });
+        body
+            table#conferenceTable
+                thead
+                    tr
+                        th 会议名
+                        th 会议号
+                        th 人数
+                tbody
+
